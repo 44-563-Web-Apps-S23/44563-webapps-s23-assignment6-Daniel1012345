@@ -6,19 +6,39 @@
 <h2>Painter entry Daniel Omole</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_age">The hidden painter name</label>
+    <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="Monet"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
+    <label for="form1_nick">Guess the painter </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="checkPainter()" value="Check the guess">
 </form>
+
 
 
 <p id="result">This text will be replaced </p>
 
 <script> 
+var good = 0;
+var oops = 0;
+
+function checkPainter(){
+    console.log("Getting form values")
+    painter = document.getElementById("form1_age").value
+    guess = document.getElementById("form1_nick").value
+    inf = document.getElementById("result")
+    if(painter==guess){
+        good +=1
+        alert("You got it right")
+        inf.innerHTML = ("good count " + good)
+    }else{
+        oops += 1
+        alert("Sorry")
+        inf.innerHTML = ("oops count " + oops)
+    }
+
+}
 
 function resolveForm (){
     console.log("Getting form values")
