@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversion Page</title>
+</head>
+ 
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_base">Enter base amount </label>
+    <input type ="number" id="form1_base" name="form1_base" min=10 max=50 step=2 value=50> <br>
+
+    <label for="form1_rate">Enter the conversion rate</label>
+    <input type ="number" id="form1_rate" name="form1_rate" autofocus> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+function convert(){
+    console.log("Getting form values")
+    base = document.getElementById("form1_base").value
+    rate = document.getElementById("form1_rate").value
+    var toShow = " ";
+    inf = document.getElementById("result")
+    const bases = [base, base*2, base*4, base*8, base*16];
+    for(let i = 0; i<5; i++){
+        toShow += bases[i] + " is " + bases[i]*rate + "; "
+    }
+    inf.innerHTML = "Conversions are: " + toShow
+
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
