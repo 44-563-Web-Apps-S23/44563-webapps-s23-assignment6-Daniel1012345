@@ -19,9 +19,35 @@
 
 <p id="result">This text will be replaced </p>
 
+
+
+<div class="container">
+    <img src="Dacrycarpus.jpg" id="pic1" onclick="selectImage()" height = "100" width="100" alt="plant picture">
+</div>
+
 <script> 
 var good = 0;
 var oops = 0;
+var useImage = 1;
+
+function selectImage(){
+    var Image_Id = document.getElementById("pic1");
+    switch(useImage){
+        case 1:
+            Image_Id.src = "Echinacea.jpg";
+            useImage = 2;
+            break;
+        case 2:
+            Image_Id.src= "Oemleria.jpg";
+            useImage = 3;
+            break;
+        case 3:
+            Image_Id.src = "Dacrycarpus.jpg"
+            useImage = 1;
+            break;
+
+    }
+}
 
 function checkPainter(){
     console.log("Getting form values")
@@ -39,8 +65,6 @@ function checkPainter(){
     }
 
 }
-
 </script>
-
 </body>
 </html> 
