@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candy Page</title>
+</head>
+ 
+<body>
+
+<h2>Daniel Omole chooses candy</h2>
+<form>
+    <input type="checkbox" id="cb1_cheese" name="topping1" value="True" >
+    <label for="cb1_cheese">Dark Chocolate</label></br>
+    <input type="checkbox" id="cb1_olive" name="topping2" value="True">
+    <label for="cb1_olive">Nuts</label></br>
+    <input type="checkbox" id="cb1_onion" name="topping3"   value="False" >
+    <label for="cb1_onion">Chewy</label></br>
+
+    <input type="button" onclick="selectBox()" value="Select a box">
+</form>
+
+<p id="result1"> </p>
+
+<script> 
+
+my_candy_box = {}
+function selectBox(){
+    my_candy_box = {}
+    out = document.getElementById("result1")
+    if(document.getElementById("cb1_cheese").checked){
+        my_candy_box.dark= true;
+    }else{
+       my_candy_box.dark = False;
+
+    }
+    if(document.getElementById("cb1_olive").checked){
+        my_candy_box.nuts = true;
+    }else{
+        my_candy_box.nuts = false;
+
+    }
+    if(document.getElementById("cb1_onion").checked){
+        my_candy_box.Chewy=true;
+    }else{
+        my_candy_box.Chewy=false;
+    }
+    out.innerHTML = JSON.stringify(my_candy_box)
+}
+
+
+</script>
+
+</body>
+</html> 
