@@ -20,7 +20,30 @@
 
 <p id="result1"> </p>
 
+<form>
+    <label for="size">Enter the size</label>
+    <input type ="text" id="size" name="size" value= "size"> <br>
+
+    <label for="price">Enter price</label>
+    <input type ="text" id="price" name="price"> <br>
+
+    <input type="button" onclick="updateBox()" value="Update the box">
+</form>
+
+
+
 <script> 
+
+function updateBox(){
+    out = document.getElementById("result1")
+
+    size = document.getElementById("size").value
+    price = document.getElementById("price").value
+    my_candy_box.size = size;
+    my_candy_box.price = price;
+    out.innerHTML = JSON.stringify(my_candy_box)
+
+}
 
 my_candy_box = {}
 function selectBox(){
